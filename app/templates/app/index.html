@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appointment Booking System</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+<header>
+<h1>Book Your Appointment</h1>
+</header>
+<main>
+<div class="container">
+<section class="calendar">
+<h2>Select a Date</h2>
+<div id="calendar"></div>
+
+</section>
+<section class="booking-form">
+<h2>Enter Your Details</h2>
+<form id="appointmentForm" method="post">
+{% csrf_token %}
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+<label for="phone">Phone:</label>
+<input type="tel" id="phone" name="phone" required>
+<label for="date">Date:</label>
+<input type="text" id="date" name="date" readonly required>
+<button type="submit">Book Appointment</button>
+</form>
+<p id="confirmationMessage"></p>
+</section>
+</div>
+<script src="{% static 'script.js' %}"></script>
+</main>
+</body>
+</html>
